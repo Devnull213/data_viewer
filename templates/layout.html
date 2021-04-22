@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--BOOTSTRAP-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <!-- MASTER CSS-->
+    <link rel="stylesheet" href="{% static 'master/css/style.css' %}" />
+    <title>Visor de datos Teknica-Itaú</title>
+
+    <!-- FAVICON -->
+    <link
+      rel="icon"
+      href="{% static 'master/img/diagrama.png' %}"
+      type="favicon.ico"
+    />
+  </head>
+  <body>
+
+  <nav class="nav navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="{% url 'landing-page' %}"
+        >Visor de datos <span id="teknica">Teknica</span
+        ><span id="separador_marcas">-</span><span id="itau">Itaú</span></a
+      >
+
+      
+        {% if request.session.is_admin and request.session.is_tech %}
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'choose_view' %}"
+            >Home</a>
+          {% endif %} 
+
+
+        {% if request.session.is_admin and not request.session.is_tech %}
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'admin_view' %}"
+            >Home</a>
+          {% endif %} 
+
+        {% if request.session.is_tech and not request.session.is_admin %}
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'tech_view' %}"
+            >Home</a>
+          {% endif %} 
+
+          {% if not 'id' in request.session %}
+
+          <a
+            class="nav-link active text-white navbar-right"
+            href="{% url 'login' %}"
+            >ingreso</a
+          >
+
+          {% endif %} 
+          {% if 'id' in request.session %}
+
+          
+          <li class="nav-item dropdown nav">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Hola {{ request.session.first_name }} 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a>
+        </div>
+      </li>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %} {% endblock %}
+
+  <!--JQUERY-->
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!--JS Bootstrap-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+  <!--Bootstrap min-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+
+  <!--Chart JS-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
+  <!--JavaScript-->
+
+    <script src="{% static 'master/js/app.js' %}"></script>
+
+
+  </body>
+</html>

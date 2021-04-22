@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="register-container card card-body col-md-4 pt-4">
+    <form class="log-reg-forms" action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input class="btns mt-3" type="submit" value="Registrarme">
+    </form>
+</div>
+{% endblock %}
