@@ -1,6 +1,9 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
+{%for i in hola%}
+{{i}}
+{%endfor%}
 <h1>Hola admin</h1>
 <canvas id="stulzOne"></canvas>
 
