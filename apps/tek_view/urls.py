@@ -11,5 +11,5 @@ urlpatterns = [
 	#|----------------------------Data paths----------------------------|
 
 	path('data_stulz_one',  views.data_stulz_one, name="data_stulz_one"),
-	path('data_stulz_one',  views.data_stulz_one, name="data_stulz_one"),
+	path('data_stulz_two',  views.data_stulz_two, name="data_stulz_two"),
 ]

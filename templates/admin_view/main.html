@@ -1,11 +1,18 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-{%for i in hola%}
-{{i}}
-{%endfor%}
-<h1>Hola admin</h1>
-<canvas id="stulzOne"></canvas>
+<h1>Panel Administrativo</h1>
+<form action="date_config" method="post">
+{% csrf_token %}
+<input type="date" name="date" id="">:
+<input type="submit" value="Actualizar Informe">
+</form>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<div class="col-md-5 inline-block">
+    <canvas id="stulzOneChart" width="400" height="400"></canvas>
+</div>
+<div class="col-md-5 inline-block ml-6">
+    <canvas id="stulzTwoChart" width="400" height="400" ></canvas>
+</div>
+
 {% endblock %}

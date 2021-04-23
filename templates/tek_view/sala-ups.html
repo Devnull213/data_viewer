@@ -46,7 +46,7 @@
         </button>
       </div>
       <div class="modal-body modal_background text-white">
-      <form action="{% url 'data_stulz_one' %}" method="post">
+      <form action="{% url 'data_stulz_two' %}" method="post">
       {% csrf_token %}
       <table>
       {{stulztwoform.as_table}}

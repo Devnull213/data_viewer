@@ -40,7 +40,7 @@ def data_stulz_one(request):
 
 
 def data_stulz_two(request):
-	form = 	StulzOneForm(request.POST)
+	form = 	StulzTwoForm(request.POST)
 	if form.is_valid():
 		form.save()
 	return redirect('/tek_view/sala_ups')

@@ -1,78 +1,117 @@
-
 $(document).ready(function () {
+  let stulzOneEndpoint = "/admin_view/stulz_one_data";
+  let stulzTwoEndpoint = "/admin_view/stulz_two_data";
+  let labels = [];
+  let stulzOneTempData = [];
+  let stulzTwoTempData = [];
+  let stulzOneHumData = [];
+  let stulzTwoHumData = [];
 
-    let endpoint = '/admin_view/stulz_one_data'
-    let labels = [];
-    let tempData= [];
-    let humData= [];
+  $.ajax({
+    method: "GET",
+    url: stulzOneEndpoint,
+    success: function (data) {
+      console.log(data);
+      labels = data.labels;
+      stulzOneTempData = data.temp;
+      stulzOneHumData = data.hum;
+      var ctx = document.getElementById("stulzOneChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        backgroundColor: ["rgba(34, 33, 36, 1)"],
+        color:["rgba(255, 255, 255, 1)"],
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              type: "line",
+              label: "Temperatura en grados",
+              data: stulzOneTempData,
+              borderColor: ["rgba(255, 99, 132, 1)"],
+              borderWidth: 2
+            },
+            {
+              type: "line",
+              label: "Porcentaje de humedad",
+              data: stulzOneHumData,
+              borderColor: ["rgba( 45, 99, 255, 1)"],
+              borderWidth: 2
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Stulz #1",
+            },
+          },
+            scales:{
+                y:{
+                    beginAtZero: true,
+                }
+            },
+            responsive: true,
+            mantainAspectRatio: false,
+        },
+      });
+    },
+    error: function (error_data) {
+      console.log("error");
+      console.log(error_data);
+    },
+  });
 
-    $.ajax({
-        method:'GET',
-        url: endpoint,
-        success: function(data){
-            console.log(data);
-            labels = data.labels;
-            tempData = data.temp;
-            humData = data.hum;
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        type: 'line',
-                        label: 'Temperatura',
-                        data: tempData,
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)']
-                    },
-                    {type: 'line',
-                    label: 'Humedad',
-                    data: humData,
-                    borderColor: [
-                        'rgba( 45, 99, 255, 1)']
-                }],
-               } 
-            })},
-        error: function(error_data){
-            console.log('error')
-            console.log(error_data)
-        }
-    });
-
+  $.ajax({
+    method: "GET",
+    url: stulzTwoEndpoint,
+    success: function (data) {
+      console.log(data);
+      labels = data.labels;
+      stulzTwoTempData = data.temp;
+      stulzTwoHumData = data.hum;
+      var ctx = document.getElementById("stulzTwoChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        backgroundColor: ["rgba(34, 33, 36, 1)"],
+        color:["rgba(255, 255, 255, 1)"],
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              type: "line",
+              label: "Temperatura en grados",
+              data: stulzTwoTempData,
+              borderColor: ["rgba(255, 99, 132, 1)"],
+              borderWidth: 2
+            },
+            {
+              type: "line",
+              label: "Porcentaje de humedad",
+              data: stulzTwoHumData,
+              borderColor: ["rgba( 45, 99, 255, 1)"],
+              borderWidth: 2
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Stulz #2",
+            },
+          },
+            scales:{
+                y:{
+                    beginAtZero: true,
+                }
+            },
+            responsive: true,
+            mantainAspectRatio: false,
+        },
+      });
+    },
+    error: function (error_data) {
+      console.log("error");
+      console.log(error_data);
+    },
+  });
 });
-
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
