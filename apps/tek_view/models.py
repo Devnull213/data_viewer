@@ -30,6 +30,21 @@ class Chiller_uniflair(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+class Chiller_climavenetta(models.Model):
+    temp_in = models.FloatField()
+    temp_out = models.FloatField()
+    compressor_one = models.BooleanField(blank=True, null=True)
+    compressor_two = models.BooleanField(blank=True, null=True)
+    compressor_three = models.BooleanField(blank=True, null=True)
+    compressor_four = models.BooleanField(blank=True, null=True)
+    eva_pressure_circuit_one = models.FloatField()
+    eva_pressure_circuit_two = models.FloatField()
+    cond_pressure_circuit_one = models.FloatField()
+    cond_pressure_circuit_two = models.FloatField()
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 class Carrier_one(models.Model):
     temperature = models.FloatField()
     comment = models.TextField(blank=True, null=True)
@@ -41,7 +56,29 @@ class Carrier_two(models.Model):
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class Pump_one(models.Model):
+    pressure_out = models.FloatField()
+    pressure_in= models.FloatField()
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
+
+class Pump_two(models.Model):
+    pressure_out = models.FloatField()
+    pressure_in= models.FloatField()
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Pump_three(models.Model):
+    pressure_out = models.FloatField()
+    pressure_in= models.FloatField()
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 #energy models
 
 class UPS_one(models.Model):
@@ -88,7 +125,9 @@ class UPS_two(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+choices  = [('run', 'run'),('auto', 'auto'),('stop', 'stop'),]
 class GE_one(models.Model):
+    state = models.CharField(max_length=50, choices = choices)
     temperature = models.FloatField()
     battery_volt = models.FloatField()
     hours_running = models.FloatField()
@@ -97,9 +136,19 @@ class GE_one(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class GE_two(models.Model):
+    state = models.CharField(max_length=50, choices = choices)
     temperature = models.FloatField()
     battery_volt = models.FloatField()
     hours_running = models.FloatField()
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Power(models.Model):
+    kva = models.FloatField()
+    kw = models.FloatField()
+    kvar = models.FloatField()
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

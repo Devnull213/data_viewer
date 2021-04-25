@@ -106,5 +106,23 @@ input:focus{
     display:inline-block;
 }
 
-#stulzTwoChart{
+.mainCharts{
+    width:90%;
+    text-align:center;
+    margin: auto;
 }
+
+.admin-title{
+    text-align:center;
+    width: 40%;
+    margin: auto;
+}
+
+.charts{
+    background-color: #222124;
+    margin: 20px;
+}
+
+/* #bombas{
+    display:none;
+} */

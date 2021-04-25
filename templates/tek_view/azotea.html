@@ -4,8 +4,13 @@
 <div class="ups-container">
 <h1>Equipos Azotea</h1>
     <a class="salaups-element" href="#modal_uniflair" data-toggle="modal" data-target="#modal_uniflair">Chiller Uniflair</a>
-    <a class="salaups-element" href="">Chiller Climaveneta</a>
-    <a class="salaups-element" href="">Bombas</a>
+    <a class="salaups-element" href="#modal_climavenetta" data-toggle="modal" data-target="#modal_climavenetta">Chiller climavenetta</a>
+    <a id='bombas-trigger'class="salaups-element" href="">Bombas</a>
+</div>
+<div id="bombas" class="ups-container">
+    <a class="salaups-element" href="#modal_pump_one" data-toggle="modal" data-target="#modal_pump_one">Bomba #1</a>
+    <a class="salaups-element" href="#modal_pump_two" data-toggle="modal" data-target="#modal_pump_two">Bomba #2</a>
+    <a class="salaups-element" href="#modal_pump_three" data-toggle="modal" data-target="#modal_pump_three">Bomba #3</a>
 </div>
 
 
@@ -13,13 +18,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal_background text-white">
-        <h5 class="modal-title">Stulz #1</h5>
+        <h5 class="modal-title">Chiller Uniflair</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body modal_background text-white">
-      <form action="{% url 'data_stulz_one' %}" method="post">
+      <form action="{% url 'data_chiller_uniflair' %}" method="post">
       {% csrf_token %}
       <table>
       {{chilleruniflairform.as_table}}
@@ -34,4 +39,104 @@
   </div>
 </div>
 
+<div class="modal" tabindex="-1" role="dialog" id="modal_climavenetta">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Chiller Climavenetta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_chiller_climavenetta' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{chillerclimavenettaform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modal_pump_one">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Bomba #1</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_pump_one' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{pumponeform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modal_pump_two">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Bomba #2</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_pump_two' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{pumptwoform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modal_pump_three">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Bomba#3</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_pump_three' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{pumpthreeform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

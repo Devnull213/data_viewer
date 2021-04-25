@@ -19,7 +19,10 @@
       <a href="{% url 'azotea' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <a href="{% url 'grupos_electrogenos' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'data_center' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -34,8 +37,8 @@
 
 
 
-<a href="{% url 'grupos_electrogenos' %}">Grupos electrógenos</a>
+{% comment %} <a href="{% url 'grupos_electrogenos' %}">Grupos electrógenos</a>
 <a href="{% url 'azotea' %}">Azotea</a>
-<a href="{% url 'data_center' %}">Data center</a>
+<a href="{% url 'data_center' %}">Data center</a> {% endcomment %}
 
 {% endblock %}

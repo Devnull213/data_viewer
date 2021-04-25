@@ -1,0 +1,60 @@
+{% extends 'layout.html' %} 
+{% load static %} 
+{% block content %}
+<div class="ups-container">
+  <h1 class="text-white" >Grupos electrógenos</h1>
+  <a class='salaups-element' href="#modal_geOne" data-toggle="modal" data-target="#modal_geOne">Grupo Electrógeno C15</a>
+  <a class='salaups-element' href="#modal_geTwo" data-toggle="modal" data-target="#modal_geTwo">Grupo Electrógeno C18</a>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modal_geOne">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Grupo C15</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_ge_one' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{geoneform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modal_geTwo">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal_background text-white">
+        <h5 class="modal-title">Grupo C15</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_background text-white">
+      <form action="{% url 'data_ge_two' %}" method="post">
+      {% csrf_token %}
+      <table>
+      {{getwoform.as_table}}
+      </table>
+      </div>
+      <div class="modal-footer modal_background">
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

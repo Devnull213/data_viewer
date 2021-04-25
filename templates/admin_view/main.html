@@ -1,18 +1,92 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<h1>Panel Administrativo</h1>
-<form action="date_config" method="post">
+
+<div class="admin-title">
+    <h1 class="text-white" >Panel Administrativo</h1>
+    <form action="date_config" method="post">
 {% csrf_token %}
-<input type="date" name="date" id="">:
+<input type="date" name="date" id="" value={{date}}><br>
 <input type="submit" value="Actualizar Informe">
 </form>
-
-<div class="col-md-5 inline-block">
-    <canvas id="stulzOneChart" width="400" height="400"></canvas>
 </div>
-<div class="col-md-5 inline-block ml-6">
-    <canvas id="stulzTwoChart" width="400" height="400" ></canvas>
+
+<div class="mainCharts">
+    <div class="row_one">
+        <div class="charts col-md-5 inline-block">
+            <canvas id="stulzOneChart" width="400" height="400"></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="stulzTwoChart" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_two">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="carrierOneChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="carrierTwoChart" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_three charts">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="upsOneChartIn" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="upsOneChartOut" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_four charts">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="upsTwoChartIn" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="upsTwoChartOut" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_five charts">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="chillerUniflairChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="chillerUniflairPressure" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_six charts">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="chillerClimavenettaChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="chillerClimavenettaPressure" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_seven charts">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="pumpOneChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="pumpTwoChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="pumpThreeChart" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_eight ">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="geOneChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="geTwoChart" width="400" height="400" ></canvas>
+        </div>
+    </div>
+    <div class="row_nine charts ">
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="powerChart" width="400" height="400" ></canvas>
+        </div>
+        <div class="charts col-md-5 inline-block ml-6">
+            <canvas id="powerPromChart" width="400" height="400" ></canvas>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

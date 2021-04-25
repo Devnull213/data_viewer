@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
+from datetime import date
 from apps.log_register import *
 
 def index(request):
 	return render(request, 'layout.html')
 
 def main(request):
-	return render(request, 'admin_view/main.html')
+    return render(request, 'admin_view/main.html')
 
 def choose_view(request):
     return render(request, 'choose_view.html')
