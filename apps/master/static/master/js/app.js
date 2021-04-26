@@ -1587,9 +1587,45 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  // $('#bombas').hide();
-  $("#bombas-trigger").click(function () {
-    $("#bombas").fadeIn();
+  $('.subsitio').hide();
+  $('.subsitio:first').show();
+
+  $('#ups').click(function () {
+    $('.subsitio').hide();
+    $('#salaups').fadeIn()
   });
+
+  $('#az').click(function () {
+    $('.subsitio').hide();
+    $('#azotea').fadeIn()
+  })
+
+  $('#gen').click(function () {
+    $('#gen').addClass('activo')
+    $('.subsitio').hide();
+    $('#ge').fadeIn()
+  })
+
+  $('#dc').click(function () {
+    $('#dc').addClass('activo')
+    $('.subsitio').hide();
+    $('#datacenter').fadeIn()
+  })
+
+  $('.go-up').click(function () {
+    $('body, html').animate({
+      scrollTop: '0px'
+    }, 300)
+  })
+
+  $(window).scroll(function () {
+    if ( $(this).scrollTop() > 0){
+      $('.go-up').slideDown(300);
+    }else{
+      $('.go-up').slideUp(300);
+
+    }
+    
+  })
 
 });

@@ -2,6 +2,8 @@
 
 {% block content %}
 
-<a href="{% url 'admin_view' %}">Panel de Administrador</a>
-<a href="{% url 'tech_view' %}">Panel Técnico</a>
+<div class="chooseview-container">
+    <a class="salaups-element" href="{% url 'admin_view' %}">Panel Administrador</a>
+    <a class="salaups-element" href="{% url 'tech_view' %}">Panel Técnico</a>
+</div>
 {% endblock %}

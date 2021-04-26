@@ -80,11 +80,14 @@ input:focus{
     justify-content: center;
     justify-items: center;
     width: 20%;
+    margin: 5px;
     margin-top: 100px;
-    background-color:black;
     padding:100px;
+    border: 2px solid black;
     border-radius: 10px;
     display: inline-block;
+    background-color: #192347;
+    color: white;
 }
     
 .salaups-element:hover{
@@ -121,8 +124,63 @@ input:focus{
 .charts{
     background-color: #222124;
     margin: 20px;
+    border-radius: 15px;
+}
+.tabs{
+    display: flex;
+    background-color: #222124;
+    width:80%;
+    margin:auto;
+    list-style: none;
+    padding:10px;
+    border-radius: 15px;
+    margin-top: 20px;
 }
 
-/* #bombas{
+.tabs>li{
+    width: 15%;
+    text-align: center;
+}
+
+.activo{
+    color: #2088e8;
+}
+.tabs>li>a{
+    color:white;
+    text-decoration:none;
+}
+
+.carr{
+    width:1080px;
+    max-height: 100px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+#container-carr{
+    width:90%;
+    margin: auto;
+    text-align:center;
+}
+
+span{
+    margin-right: 10px;
+}
+
+.chooseview-container{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.go-up{
     display:none;
-} */
+    padding: 20px;
+    border-radius: 120px;
+    color: white;
+    background-color: #222124;
+    cursor: pointer;
+    position:fixed;
+    bottom:0;
+    right:0;
+}

@@ -2,43 +2,39 @@
 {% load static %} 
 {% block content %}
 
+<div id="container-carr">
+  <h1 class="text-white" >Panel Técnico</h1>
 
-<div id="carouselExampleIndicators" class="carousel slide carr" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a href="{% url 'sala_ups' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
+  <div id="carouselExampleIndicators" class="carousel slide carr" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="{% url 'sala_ups' %}"><img class="d-block w-100" src="{% static 'master/img/salaups.png'%}" alt="First slide"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'azotea' %}"><img class="d-block w-100" src="{% static 'master/img/azotea.png'%}" alt="First slide"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'grupos_electrogenos' %}"><img class="d-block w-100" src="{% static 'master/img/ge.png'%}" alt="First slide"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'data_center' %}"><img class="d-block w-100" src="{% static 'master/img/datacenter.png'%}" alt="First slide"></a>
+      </div>
     </div>
-    <div class="carousel-item">
-      <a href="{% url 'azotea' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
-    </div>
-    <div class="carousel-item">
-      <a href="{% url 'grupos_electrogenos' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
-    </div>
-    <div class="carousel-item">
-      <a href="{% url 'data_center' %}"><img class="d-block w-100" src="{% static 'master/img/upsejemplos.png'%}" alt="First slide"></a>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
-
-
-
-{% comment %} <a href="{% url 'grupos_electrogenos' %}">Grupos electrógenos</a>
-<a href="{% url 'azotea' %}">Azotea</a>
-<a href="{% url 'data_center' %}">Data center</a> {% endcomment %}
-
 {% endblock %}

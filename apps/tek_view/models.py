@@ -58,24 +58,24 @@ class Carrier_two(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Pump_one(models.Model):
-    pressure_out = models.FloatField()
-    pressure_in= models.FloatField()
+    pressure_out = models.FloatField(default=0)
+    pressure_in= models.FloatField(default=0)
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
 
 class Pump_two(models.Model):
-    pressure_out = models.FloatField()
-    pressure_in= models.FloatField()
+    pressure_out = models.FloatField(default=0)
+    pressure_in= models.FloatField(default=0)
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Pump_three(models.Model):
-    pressure_out = models.FloatField()
-    pressure_in= models.FloatField()
+    pressure_out = models.FloatField(default=0)
+    pressure_in= models.FloatField(default=0)
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
