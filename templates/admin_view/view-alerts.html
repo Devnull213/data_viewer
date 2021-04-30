@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1 class="alert-main" >Alertas Técnicas</h1>
+{% for msg in alert%}
+<div class="alert-messages">
+<p class="alert-title">{{msg.title}} | {{msg.created_at}}</p>
+<p class="alert-message">{{msg.message}}</p>
+</div>
+{% endfor %}
+{% endblock %}

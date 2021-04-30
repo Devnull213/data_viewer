@@ -88,10 +88,11 @@
         <li id="greetings" class=" nav-link collapse navbar-collapse nav-item active">
          Hola {{ request.session.first_name }} <span class="fas fa-user user-icon"></span>
         </li>
-
+        {% if request.session.is_admin %}
         <li class="nav-link collapse navbar-collapse nav-item active">
-            <a class="text-white far fa-bell"></a>
+            <a href="{% url 'alert_messages' %}" class="text-white far fa-bell"></a>
         </li>
+          {% endif %}
           {% endif %}
         </div>
       </div>

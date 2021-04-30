@@ -1611,6 +1611,11 @@ $(document).ready(function () {
     $('.eq-az').html(texto)
   })
 
+  $('.tech-element').hover(function () {
+    let texto = $(this).text()
+    $('#tech-menu').html(texto)
+  })
+
   $('.ge-element').hover(function () {
     let texto = 'Grupo'
     let geSpecific = $(this).attr('value')

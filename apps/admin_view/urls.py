@@ -18,4 +18,5 @@ urlpatterns = [
 	path('ge_one_data',  views.ge_one_data, name="ge_one_data"),
 	path('ge_two_data',  views.ge_two_data, name="ge_two_data"),
 	path('power_data',  views.power_data, name="power_data"),
+	path('alert_messages',  views.alert_messages, name="alert_messages"),
 ]

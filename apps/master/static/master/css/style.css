@@ -138,7 +138,7 @@ input:focus{
 }
 
 
-.dc-element:hover{
+.dc-element:hover, .tech-element:hover{
     text-decoration: none;
     color: #11f1ff;
 }
@@ -198,9 +198,7 @@ input:focus{
     text-align:center;
     align-items: center;
     margin-top: 200px;
-    background-color: #222124;
     border-radius: 15px;
-    box-shadow: 2px 2px 10px black;
 }
 
 .chooseview-admin{
@@ -404,8 +402,9 @@ span{
 }
 
 #date{
-    background-color: #161618;
-    color: white;
+    /* background-color: #161618;
+    color: white; */
+    border:1px solid #161618;
 }
 
 .perfil-container{
@@ -419,6 +418,35 @@ span{
     margin-top: 100px;
 }
 
+.alert-messages{
+    color:white;
+    width:60%;
+    margin: auto;
+    background-color: #161618;
+    box-shadow: 2px 2px 10px black;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.alert-title{
+    color:red;
+}
+
+.alert-main{
+    font-weight: bold;
+    text-align: center;
+    width:60%;
+    margin: auto;
+}
+
+.panel-title{
+    font-weight: bold;
+    text-align: center;
+    width:60%;
+    margin: auto;
+}
+
 .profile-separator{
     border: 1px solid white;
     margin: 20px;
@@ -428,6 +456,9 @@ span{
     margin-right: 700px;
 }
 
+#botonInforme{
+    background-color: #161618;
+}
 
 /* FORMULARIOS  TECH MENU*/
 
@@ -552,6 +583,38 @@ span{
     font-size: 80px;
     font-weight: bold;
     color:#161618;
+}
+
+.tech-ups{
+    position: absolute;
+    bottom: 50px;
+    right: 800px;
+}
+
+.tech-ge{
+    position: absolute;
+    bottom: 50px;
+    right: 150px;
+}
+
+.tech-az{
+    position: absolute;
+    bottom: 280px;
+    right: 480px;
+}
+
+.tech-dc{
+    position: absolute;
+    bottom: 50px;
+    right: 480px;
+}
+
+#tech-menu{
+    position: absolute;
+    font-size: 80px;
+    font-weight: bold;
+    color:#161618;
+
 }
 /* DARK MODE */
 

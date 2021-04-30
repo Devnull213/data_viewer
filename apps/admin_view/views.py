@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, HttpResponse
 from datetime import datetime
-from apps.tek_view.models import *
+from apps.tek_view.models import  Alert
 from apps.tek_view.views import *
 
 def admin_view(request):
@@ -411,3 +411,7 @@ def power_data(request):
 		'labels': labels,
 	}
 	return JsonResponse(data)
+
+def alert_messages(request):
+	alerts = Alert.objects.all()
+	return render(request, 'admin_view/view-alerts.html', {'alert': alerts})
