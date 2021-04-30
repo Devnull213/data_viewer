@@ -1,16 +1,19 @@
 {% extends 'layout.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
+{% if request.session.is_admin == False and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'tech_view' %}">Atrás</a>
+{% endif %}
+{% if request.session.is_admin == True and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'choose_view' %}">Atrás</a>
+{% endif %}
 
-<div class="ups-container">
-<h1 class="text-white" >Equipos Azotea</h1>
-    <a class="salaups-element" href="#modal_uniflair" data-toggle="modal" data-target="#modal_uniflair">Chiller Uniflair</a>
-    <a class="salaups-element" href="#modal_climavenetta" data-toggle="modal" data-target="#modal_climavenetta">Chiller Climav.</a>
-</div>
-<div id="bombas" class="ups-container">
-    <a class="salaups-element" href="#modal_pump_one" data-toggle="modal" data-target="#modal_pump_one">Bomba #1</a>
-    <a class="salaups-element" href="#modal_pump_two" data-toggle="modal" data-target="#modal_pump_two">Bomba #2</a>
-    <a class="salaups-element" href="#modal_pump_three" data-toggle="modal" data-target="#modal_pump_three">Bomba #3</a>
-</div>
+<h1 class="text-black eq-az" >Equipos Azotea</h1>
+<a class="az-element uniflair" href="#modal_uniflair" data-toggle="modal" data-target="#modal_uniflair">Chiller Uniflair</a>
+<a class="az-element climavenetta" href="#modal_climavenetta" data-toggle="modal" data-target="#modal_climavenetta">Chiller Climav.</a>
+<a class="az-element pump_one" href="#modal_pump_one" data-toggle="modal" data-target="#modal_pump_one">Bomba #1</a>
+<a class="az-element pump_two" href="#modal_pump_two" data-toggle="modal" data-target="#modal_pump_two">Bomba #2</a>
+<a class="az-element pump_three" href="#modal_pump_three" data-toggle="modal" data-target="#modal_pump_three">Bomba #3</a>
 
 
 <div class="modal" tabindex="-1" role="dialog" id="modal_uniflair">
@@ -26,7 +29,17 @@
       <form action="{% url 'data_chiller_uniflair' %}" method="post">
       {% csrf_token %}
       <table>
-      {{chilleruniflairform.as_table}}
+      {{chilleruniflairform.temp_in|as_crispy_field}}
+      {{chilleruniflairform.temp_out|as_crispy_field}}
+      {{chilleruniflairform.compressor_one|as_crispy_field}}
+      {{chilleruniflairform.compressor_two|as_crispy_field}}
+      {{chilleruniflairform.compressor_three|as_crispy_field}}
+      {{chilleruniflairform.compressor_four|as_crispy_field}}
+      {{chilleruniflairform.eva_pressure_circuit_one|as_crispy_field}}
+      {{chilleruniflairform.eva_pressure_circuit_two|as_crispy_field}}
+      {{chilleruniflairform.cond_pressure_circuit_one|as_crispy_field}}
+      {{chilleruniflairform.cond_pressure_circuit_two|as_crispy_field}}
+      {{chilleruniflairform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -51,7 +64,17 @@
       <form action="{% url 'data_chiller_climavenetta' %}" method="post">
       {% csrf_token %}
       <table>
-      {{chillerclimavenettaform.as_table}}
+      {{chillerclimavenettaform.temp_in|as_crispy_field}}
+      {{chillerclimavenettaform.temp_out|as_crispy_field}}
+      {{chillerclimavenettaform.compressor_one|as_crispy_field}}
+      {{chillerclimavenettaform.compressor_two|as_crispy_field}}
+      {{chillerclimavenettaform.compressor_three|as_crispy_field}}
+      {{chillerclimavenettaform.compressor_four|as_crispy_field}}
+      {{chillerclimavenettaform.eva_pressure_circuit_one|as_crispy_field}}
+      {{chillerclimavenettaform.eva_pressure_circuit_two|as_crispy_field}}
+      {{chillerclimavenettaform.cond_pressure_circuit_one|as_crispy_field}}
+      {{chillerclimavenettaform.cond_pressure_circuit_two|as_crispy_field}}
+      {{chillerclimavenettaform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -77,7 +100,9 @@
       <form action="{% url 'data_pump_one' %}" method="post">
       {% csrf_token %}
       <table>
-      {{pumponeform.as_table}}
+      {{pumponeform.pressure_out|as_crispy_field}}
+      {{pumponeform.pressure_in|as_crispy_field}}
+      {{pumponeform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -102,7 +127,9 @@
       <form action="{% url 'data_pump_two' %}" method="post">
       {% csrf_token %}
       <table>
-      {{pumptwoform.as_table}}
+      {{pumptwoform.pressure_out|as_crispy_field}}
+      {{pumptwoform.pressure_in|as_crispy_field}}
+      {{pumptwoform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -127,7 +154,9 @@
       <form action="{% url 'data_pump_three' %}" method="post">
       {% csrf_token %}
       <table>
-      {{pumpthreeform.as_table}}
+      {{pumpthreeform.pressure_out|as_crispy_field}}
+      {{pumpthreeform.pressure_in|as_crispy_field}}
+      {{pumpthreeform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">

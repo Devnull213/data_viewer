@@ -407,3 +407,32 @@ class PowerForm(forms.ModelForm):
         widgets = {
             'comment': forms.Textarea(attrs={'cols': '24', 'rows': '5'})
         }
+
+class CreateAlertForm(forms.ModelForm):
+    class Meta:
+        model = Alert
+
+        fields = [
+            'title',
+            'message',
+        ]
+
+        labels = {
+            'title': 'Titulo',
+            'message': 'Mensaje',
+        }
+        widgets = {
+            'message': forms.Textarea(attrs={'cols': '24', 'rows': '5'})
+        }
+
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+        if len(title) < 5:
+            raise forms.ValidationError('El titulo debe contener más de 5 caracteres.')
+        return title
+
+    def clean_message(self):
+        message = self.cleaned_data.get('message')
+        if len(message) <= 10:
+            raise forms.ValidationError('El mensaje debe contener al menos 10 caracteres.')
+        return message

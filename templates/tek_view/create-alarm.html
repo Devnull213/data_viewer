@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form class="register-container card card-body col-md-4 pt-4"action="{% url 'create_alert' %}" method="post">
+{% csrf_token %}
+{{form.title|as_crispy_field}}
+{{form.message|as_crispy_field}}
+<input type="submit" value="Crear alerta" class="btn btn-success mt-3">
+</form>
+{% endblock %}

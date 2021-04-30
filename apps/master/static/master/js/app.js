@@ -1105,7 +1105,7 @@ $(document).ready(function () {
           plugins: {
             title: {
               display: true,
-              text: "Bomba #3",
+              text: "Bomba #1",
               fontSize: 30,
             },
             legend: {
@@ -1397,7 +1397,7 @@ $(document).ready(function () {
           plugins: {
             title: {
               display: true,
-              text: "Grupo electrógeno C15",
+              text: "Grupo electrógeno C18",
               fontSize: 30,
             },
             legend: {
@@ -1451,28 +1451,28 @@ $(document).ready(function () {
               type: "line",
               label: "KVA",
               data: kva,
-              borderColor: ["rgba(236, 3, 3, 1)"],
+              borderColor: ["rgba(11, 55, 220, 1)"],
               borderWidth: 3,
               fill: true,
-              backgroundColor: ["rgba(236, 3, 3, 0.1)"],
+              backgroundColor: ["rgba(11, 55, 220, 0.1)"],
             },
             {
               type: "line",
               label: "KW",
               data: kw,
-              borderColor: ["rgba( 29, 224, 245, 1)"],
+              borderColor: ["rgba(11, 133, 220, 1)"],
               borderWidth: 3,
               fill: true,
-              backgroundColor: ["rgba( 29, 224, 245, 0.1)"],
+              backgroundColor: ["rgba(11, 133, 220, 0.1)"],
             },
             {
               type: "line",
               label: "KVAR",
               data: kvar,
-              borderColor: ["rgba( 29, 224, 245, 1)"],
+              borderColor: ["rgba(11, 180, 220, 1)"],
               borderWidth: 3,
               fill: true,
-              backgroundColor: ["rgba( 29, 224, 245, 0.1)"],
+              backgroundColor: ["rgba(11, 180, 220, 0.1)"],
             },
           ],
         },
@@ -1530,7 +1530,7 @@ $(document).ready(function () {
           datasets: [
             {
               type: "polarArea",
-              label: ['Potencia de la instalación'],
+              label: ['Potencia promedio de la instalación'],
               data: kva_total,
               borderColor: [
                 "rgba(11, 55, 220, 1)",
@@ -1551,7 +1551,7 @@ $(document).ready(function () {
           plugins: {
             title: {
               display: true,
-              text: "Potencia Tablero general",
+              text: "Potencia Promedio Tablero general",
               fontSize: 30,
             },
             legend: {
@@ -1589,28 +1589,58 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.subsitio').hide();
   $('.subsitio:first').show();
+  $('.tabs li a:first').toggleClass('activo')
 
-  $('#ups').click(function () {
-    $('.subsitio').hide();
-    $('#salaups').fadeIn()
-  });
+  $('.tabs li a').click(function () {
+    $('.tabs li a').removeClass('activo')
+    $(this).toggleClass('activo')
+    $('.subsitio').hide()
 
-  $('#az').click(function () {
-    $('.subsitio').hide();
-    $('#azotea').fadeIn()
+    let activeTab = $(this).attr('href')
+    $(activeTab).fadeIn()
+    return false;
   })
 
-  $('#gen').click(function () {
-    $('#gen').addClass('activo')
-    $('.subsitio').hide();
-    $('#ge').fadeIn()
+  $('.salaups-element').hover(function () {
+    let texto = $(this).text()
+    $('.eq-ups').html(texto)
   })
 
-  $('#dc').click(function () {
-    $('#dc').addClass('activo')
-    $('.subsitio').hide();
-    $('#datacenter').fadeIn()
+  $('.az-element').hover(function () {
+    let texto = $(this).text()
+    $('.eq-az').html(texto)
   })
+
+  $('.ge-element').hover(function () {
+    let texto = 'Grupo'
+    let geSpecific = $(this).attr('value')
+    
+    $('.eq-ge1').html(texto)
+    $('.eq-ge2').html(geSpecific)
+  })
+  // $('#ups').click(function () {
+  //   $('#ups').toggleClass('activo');
+  //   $('.subsitio').hide();
+  //   $('#salaups').fadeIn()
+  // });
+
+  // $('#az').click(function () {
+  //   $('.subsitio').hide();
+  //   $('#azotea').fadeIn()
+  // })
+
+  // $('#gen').click(function () {
+  //   $('#gen').addClass('activo')
+  //   $('.subsitio').hide();
+  //   $('#ge').fadeIn()
+  // })
+
+  // $('#dc').click(function () {
+  //   $('#dc').addClass('activo')
+  //   $('.subsitio').hide();
+  //   $('#datacenter').fadeIn()
+  // })
+
 
   $('.go-up').click(function () {
     $('body, html').animate({
@@ -1623,9 +1653,32 @@ $(document).ready(function () {
       $('.go-up').slideDown(300);
     }else{
       $('.go-up').slideUp(300);
-
     }
-    
+  });
+  $('#sidebar-btn').click(function () {
+    $('#sidebar').toggleClass('appears');
   })
 
+
+  $('#edit-profile-form').hide()
+  $('#edit-pass-form').hide()
+
+  $('#edit-profile-btn').click(function () {
+    $('#edit-pass-form').hide()
+    $('#edit-profile-form').fadeIn()
+  })
+
+  $('#edit-password-btn').click(function () {
+    $('#edit-pass-form').fadeIn()
+    $('#edit-profile-form').hide()
+  })
+
+  $('.cancel-edit').click(function () {
+    $('#edit-profile-form').hide()
+    $('#edit-pass-form').hide()
+  })
+
+  // $('#make-profile-edition').click(function () {
+  //   $('#edit-profile-form').hide()
+  // })
 });

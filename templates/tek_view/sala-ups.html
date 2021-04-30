@@ -1,14 +1,20 @@
 {% extends 'layout.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-<div class="ups-container">
-  <h1 class="text-white" >Equipos sala UPS</h1>
-  <a class="salaups-element" href="#modal_carrier1" data-toggle="modal" data-target="#modal_carrier1">Carrier #1</a>
-  <a class="salaups-element" href="#modal_carrier2" data-toggle="modal" data-target="#modal_carrier2">Carrier #2</a>
-  <a class="salaups-element" href="#modal_ups1" data-toggle="modal" data-target="#modal_ups1">UPS #1</a>
-  <a class="salaups-element" href="#modal_ups2" data-toggle="modal" data-target="#modal_ups2">UPS #2</a>
-  <a class='salaups-element' href="#modal_stulz1" data-toggle="modal" data-target="#modal_stulz1">Stulz #1</a>
-  <a class='salaups-element' href="#modal_stulz2" data-toggle="modal" data-target="#modal_stulz2">Stulz #2</a>
-</div>
+{% if request.session.is_admin == False and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'tech_view' %}">Atrás</a>
+{% endif %}
+{% if request.session.is_admin == True and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'choose_view' %}">Atrás</a>
+{% endif %}
+
+  <h1 class="text-black eq-ups" >Equipos sala UPS</h1>
+  <a class="salaups-element carrier1" href="#modal_carrier1" data-toggle="modal" data-target="#modal_carrier1">Carrier #1</a>
+  <a class="salaups-element carrier2" href="#modal_carrier2" data-toggle="modal" data-target="#modal_carrier2">Carrier #2</a>
+  <a class="salaups-element ups1" href="#modal_ups1" data-toggle="modal" data-target="#modal_ups1">UPS #1</a>
+  <a class="salaups-element ups2" href="#modal_ups2" data-toggle="modal" data-target="#modal_ups2">UPS #2</a>
+  <a class='salaups-element stulz1' href="#modal_stulz1" data-toggle="modal" data-target="#modal_stulz1">Stulz #1</a>
+  <a class='salaups-element stulz2' href="#modal_stulz2" data-toggle="modal" data-target="#modal_stulz2">Stulz #2</a>
 
 <div class="modal" tabindex="-1" role="dialog" id="modal_stulz1">
   <div class="modal-dialog" role="document">
@@ -23,7 +29,10 @@
       <form action="{% url 'data_stulz_one' %}" method="post">
       {% csrf_token %}
       <table>
-      {{stulzoneform.as_table}}
+      {{stulzoneform.state|as_crispy_field}}
+      {{stulzoneform.temperature|as_crispy_field}}
+      {{stulzoneform.humidity|as_crispy_field}}
+      {{stulzoneform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -49,7 +58,10 @@
       <form action="{% url 'data_stulz_two' %}" method="post">
       {% csrf_token %}
       <table>
-      {{stulztwoform.as_table}}
+      {{stulztwoform.state|as_crispy_field}}
+      {{stulztwoform.temperature|as_crispy_field}}
+      {{stulztwoform.humidity|as_crispy_field}}
+      {{stulztwoform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -75,7 +87,9 @@
       <form action="{% url 'data_carrier_one' %}" method="post">
       {% csrf_token %}
       <table>
-      {{carrieroneform.as_table}}
+      {{carrieroneform.state|as_crispy_field}}
+      {{carrieroneform.temperature|as_crispy_field}}
+      {{stulztwoform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -92,7 +106,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal_background text-white">
-        <h5 class="modal-title">Stulz #2</h5>
+        <h5 class="modal-title">Carrier #2</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -101,7 +115,9 @@
       <form action="{% url 'data_carrier_two' %}" method="post">
       {% csrf_token %}
       <table>
-      {{carriertwoform.as_table}}
+      {{carriertwoform.state|as_crispy_field}}
+      {{carriertwoform.temperature|as_crispy_field}}
+      {{stulztwoform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -127,7 +143,28 @@
       <form action="{% url 'data_ups_one' %}" method="post">
       {% csrf_token %}
       <table>
-      {{upsoneform.as_table}}
+        {{upsoneform.state|as_crispy_field}}
+      <div class="in">
+        {{upsoneform.volt_in_u|as_crispy_field}}
+        {{upsoneform.volt_in_v|as_crispy_field}}
+        {{upsoneform.volt_in_w|as_crispy_field}}
+        {{upsoneform.curr_in_u|as_crispy_field}}
+        {{upsoneform.curr_in_v|as_crispy_field}}
+        {{upsoneform.curr_in_w|as_crispy_field}}
+        {{upsoneform.frecuency_in|as_crispy_field}}
+      </div>
+      <div class="in">
+        {{upsoneform.volt_out_u|as_crispy_field}}
+        {{upsoneform.volt_out_v|as_crispy_field}}
+        {{upsoneform.volt_out_w|as_crispy_field}}
+        {{upsoneform.curr_out_u|as_crispy_field}}
+        {{upsoneform.curr_out_v|as_crispy_field}}
+        {{upsoneform.curr_out_w|as_crispy_field}}
+        {{upsoneform.frecuency_out|as_crispy_field}}
+      </div>
+        {{upsoneform.battery_volt|as_crispy_field}}
+        {{upsoneform.battery_curr|as_crispy_field}}
+        {{upsoneform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
@@ -144,7 +181,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal_background text-white">
-        <h5 class="modal-title">UPS #1</h5>
+        <h5 class="modal-title">UPS #2</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

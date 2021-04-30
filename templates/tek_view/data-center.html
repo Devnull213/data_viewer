@@ -1,16 +1,24 @@
 {% extends 'layout.html' %} 
+{% load crispy_forms_tags %}
 {% load static %} 
 {% block content %}
-<div class="ups-container">
-  <h1 class="text-white" >Equipos data center</h1>
-  <a class='salaups-element' href="#modal_power" data-toggle="modal" data-target="#modal_power">Potencia general instalación</a>
+{% if request.session.is_admin == False and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'tech_view' %}">Atrás</a>
+{% endif %}
+{% if request.session.is_admin == True and request.session.is_tech == True %}
+<a class="btn btn-dark atras" href="{% url 'choose_view' %}">Atrás</a>
+{% endif %}
+<div class="dc-container">
+  <h1 class="dc-text" >Data</h1>
+  <a class='dc-element' href="#modal_power" data-toggle="modal" data-target="#modal_power">Potencia general instalación</a>
+  <h1 class="dc-text" >Center</h1>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="modal_power">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal_background text-white">
-        <h5 class="modal-title">Stulz #1</h5>
+        <h5 class="modal-title">Potencia</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -19,7 +27,10 @@
       <form action="{% url 'data_power' %}" method="post">
       {% csrf_token %}
       <table>
-      {{powerform.as_table}}
+      {{powerform.kva|as_crispy_field}}
+      {{powerform.kw|as_crispy_field}}
+      {{powerform.kvar|as_crispy_field}}
+      {{powerform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">

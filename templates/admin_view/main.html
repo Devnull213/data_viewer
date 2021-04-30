@@ -1,11 +1,11 @@
 {% extends 'layout.html' %} {% load static %} {% block content %}
 
 <div class="admin-title">
-  <h1 class="text-white">Panel Administrativo</h1>
+  <h1 class="text-black">Panel Administrativo</h1>
   <form action="date_config" method="post">
     {% csrf_token %}
-    <input type="date" name="date" id="" value="{{date}}" /><br />
-    <input class="btns" id="botonInforme" type="submit" value="Actualizar Informe" />
+    <input type="date" name="date" id="date" value="{{date}}" /><br />
+    <input class="btn btn-dark" id="botonInforme" type="submit" value="Actualizar Informe" />
   </form>
 </div>
 

@@ -15,7 +15,7 @@
     />
     <!-- MASTER CSS-->
     <link rel="stylesheet" href="{% static 'master/css/style.css' %}" />
-    <title>Visor de datos Teknica-Itaú</title>
+    <title>Data Viewer</title>
 
     <!-- FAVICON -->
     <link
@@ -25,13 +25,30 @@
     />
   </head>
   <body>
+{% if request.session.id %}
+  <div id="sidebar">
+    <i id="sidebar-btn" class="fas fa-angle-right fa-customize" href=""></i>
+  <ul>
+    <li><a href="{% url 'profile' %}">Perfil</a></li>
+    {% if request.session.is_tech%}
+    <li><a href="{% url 'create_alert' %}">Crear alerta</a></li>
+    {% endif %}
+    {% if request.session.is_admin%}
+    <li><a href="">Crear recordatorio</a></li>
+    {% endif %}
+    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+  </ul>
+  </div>
+  {% endif %}
+
 
   <nav class="nav navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#"
-        >Visor de datos <span id="teknica">Teknica</span
-        ><span id="separador_marcas">-</span><span id="itau">Itaú</span></a
-      >
+      {% comment %} <a class="navbar-brand text-white" href="#"
+        >Data Viewer<span id="teknica">teknica</span
+        ><span id="separador_marcas">-</span><span id="itau">itaú</span></a
+      > {% endcomment %}
+      <a class="navbar-brand text-white" href="#"><span class="fas fa-chart-pie"></span> Data Viewer </a>
 
       
         {% if request.session.is_admin and request.session.is_tech %}
@@ -68,22 +85,19 @@
           {% if 'id' in request.session %}
 
           
-          <li class="nav-item dropdown nav">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Hola {{ request.session.first_name }} 
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Perfil</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a>
-        </div>
-      </li>
+        <li id="greetings" class=" nav-link collapse navbar-collapse nav-item active">
+         Hola {{ request.session.first_name }} <span class="fas fa-user user-icon"></span>
+        </li>
+
+        <li class="nav-link collapse navbar-collapse nav-item active">
+            <a class="text-white far fa-bell"></a>
+        </li>
           {% endif %}
         </div>
       </div>
     </div>
   </nav>
+
 
   {% block content %} {% endblock %}
 

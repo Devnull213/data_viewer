@@ -6,7 +6,6 @@ def tech_view(request):
 	return render(request, 'tek_view/main.html' )
 
 
-
 def data_center(request):
 	powerform = PowerForm()
 	return render(request, 'tek_view/data-center.html', {'powerform': powerform})
@@ -35,6 +34,17 @@ def grupos_electrogenos(request):
 	geoneform = GEOneForm()
 	getwoform = GETwoForm()
 	return render(request, 'tek_view/grupos-electrogenos.html', {'geoneform': geoneform, 'getwoform': getwoform})
+
+
+def create_alert(request):
+	if request.method == 'GET':
+		form = CreateAlertForm()
+	else:
+		form = CreateAlertForm(request.POST)
+		if form.is_valid():
+			form.save()
+		return redirect('/tek_view/tech_view')
+	return render(request, 'tek_view/create-alarm.html', {'form': form})
 	
 
 # |------------DATA HANDLERS------------|

@@ -24,4 +24,5 @@ urlpatterns = [
 	path('data_ge_one',  views.data_ge_one, name="data_ge_one"),
 	path('data_ge_two',  views.data_ge_two, name="data_ge_two"),
 	path('data_power',  views.data_power, name="data_power"),
+	path('create_alert',  views.create_alert, name="create_alert"),
 ]

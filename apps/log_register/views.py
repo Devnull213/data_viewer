@@ -44,7 +44,12 @@ def register(request):
                     request.POST['password'].encode(), bcrypt.gensalt()).decode()
                 mods.password = hashed_pass
                 form.save()
-                return redirect('/login')
+                if user.is_tech == True and user.is_admin == True:
+                    return redirect('/choose_view')
+                elif user.is_tech == True:
+                    return redirect('/tek_view/tech_view')
+                else:
+                    return redirect('/admin_view/admin_view')
         return render(request, 'log_register/register-page.html', {'form': form})
 
 
