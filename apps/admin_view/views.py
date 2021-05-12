@@ -389,17 +389,18 @@ def power_data(request):
 	for data in power_data:
 		kva_total += data.kva 
 		kva.append(data.kva)
-	kva_total = kva_total / len(kva)
+	kva_total = kva_total #/ len(kva)
 
 	for data in power_data:
 		kw_total += data.kw 
 		kw.append(data.kw)
-	kw_total = kw_total / len(kw)
+	kw_total = kw_total #/ len(kw)
 
 	for data in power_data:
 		kvar_total += data.kvar 
 		kvar.append(data.kvar)
-	kvar_total = kvar_total / len(kvar)
+
+	kvar_total = kvar_total #/ len(kvar)
 
 	data = {
 		'kva': kva,

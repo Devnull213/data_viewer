@@ -29,6 +29,10 @@ name: data_viewer
 user: postgres
 password: root
 ```
+5. Accede a la aplicación mediante 
+```
+http://localhost:8000/log_register/login
+```
 ## Construido con 🛠️
 * [Django](https://www.djangoproject.com/)
 * [Jquery](https://jquery.com/)
