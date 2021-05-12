@@ -33,9 +33,9 @@
     {% if request.session.is_tech%}
     <li><a href="{% url 'create_alert' %}">Crear alerta</a></li>
     {% endif %}
-    {% if request.session.is_admin%}
+    {% comment %} {% if request.session.is_admin%}
     <li><a href="">Crear recordatorio</a></li>
-    {% endif %}
+    {% endif %} {% endcomment %}
     <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
   </ul>
   </div>
