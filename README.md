@@ -35,4 +35,4 @@ password: root
 * [Chart.js](https://www.chartjs.org/)
 
 
-<img src="/assets/img/data_viewer_landingpage.png" width="800" height="500">
+<img src="/assets/img/data_viewer_landingpage.png" width="900" height="500">
