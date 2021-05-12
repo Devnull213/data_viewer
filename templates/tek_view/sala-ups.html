@@ -190,7 +190,28 @@
       <form action="{% url 'data_ups_two' %}" method="post">
       {% csrf_token %}
       <table>
-      {{upstwoform.as_table}}
+        {{upstwoform.state|as_crispy_field}}
+      <div class="in">
+        {{upstwoform.volt_in_u|as_crispy_field}}
+        {{upstwoform.volt_in_v|as_crispy_field}}
+        {{upstwoform.volt_in_w|as_crispy_field}}
+        {{upstwoform.curr_in_u|as_crispy_field}}
+        {{upstwoform.curr_in_v|as_crispy_field}}
+        {{upstwoform.curr_in_w|as_crispy_field}}
+        {{upstwoform.frecuency_in|as_crispy_field}}
+      </div>
+      <div class="in">
+        {{upstwoform.volt_out_u|as_crispy_field}}
+        {{upstwoform.volt_out_v|as_crispy_field}}
+        {{upstwoform.volt_out_w|as_crispy_field}}
+        {{upstwoform.curr_out_u|as_crispy_field}}
+        {{upstwoform.curr_out_v|as_crispy_field}}
+        {{upstwoform.curr_out_w|as_crispy_field}}
+        {{upstwoform.frecuency_out|as_crispy_field}}
+      </div>
+        {{upstwoform.battery_volt|as_crispy_field}}
+        {{upstwoform.battery_curr|as_crispy_field}}
+        {{upstwoform.comment|as_crispy_field}}
       </table>
       </div>
       <div class="modal-footer modal_background">
