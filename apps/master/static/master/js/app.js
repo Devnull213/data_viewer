@@ -1667,4 +1667,8 @@ $(document).ready(function () {
     $('#edit-pass-form').hide()
   })
 
+  let first_load = $('#botonInforme').trigger('click')
+  first_load.one()
+    
+
 });
