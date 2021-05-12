@@ -34,6 +34,7 @@ password: root
 * [Jquery](https://jquery.com/)
 * [Chart.js](https://www.chartjs.org/)
 
+## Imagenes 
 
 <img src="/assets/img/data_viewer_landingpage.png" width="900" height="500">
 
