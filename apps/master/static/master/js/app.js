@@ -1,4 +1,8 @@
+
 $(document).ready(function () {
+
+  // Endpoints and variables from django
+
   let stulzOneEndpoint = "/admin_view/stulz_one_data";
   let stulzTwoEndpoint = "/admin_view/stulz_two_data";
   let carrierOneEndpoint = "/admin_view/carrier_one_data";
@@ -60,6 +64,8 @@ $(document).ready(function () {
   let kva_total = [];
   let kw_total = [];
   let kvar_total = [];
+
+  // Charts configurations
 
   $.ajax({
     method: "GET",
@@ -1584,9 +1590,9 @@ $(document).ready(function () {
       console.log(error_data);
     },
   });
-});
 
-$(document).ready(function () {
+  // Admin panel navbar
+
   $('.subsitio').hide();
   $('.subsitio:first').show();
   $('.tabs li a:first').toggleClass('activo')
@@ -1623,28 +1629,6 @@ $(document).ready(function () {
     $('.eq-ge1').html(texto)
     $('.eq-ge2').html(geSpecific)
   })
-  // $('#ups').click(function () {
-  //   $('#ups').toggleClass('activo');
-  //   $('.subsitio').hide();
-  //   $('#salaups').fadeIn()
-  // });
-
-  // $('#az').click(function () {
-  //   $('.subsitio').hide();
-  //   $('#azotea').fadeIn()
-  // })
-
-  // $('#gen').click(function () {
-  //   $('#gen').addClass('activo')
-  //   $('.subsitio').hide();
-  //   $('#ge').fadeIn()
-  // })
-
-  // $('#dc').click(function () {
-  //   $('#dc').addClass('activo')
-  //   $('.subsitio').hide();
-  //   $('#datacenter').fadeIn()
-  // })
 
 
   $('.go-up').click(function () {
@@ -1683,7 +1667,4 @@ $(document).ready(function () {
     $('#edit-pass-form').hide()
   })
 
-  // $('#make-profile-edition').click(function () {
-  //   $('#edit-profile-form').hide()
-  // })
 });
