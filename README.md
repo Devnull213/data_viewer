@@ -35,4 +35,4 @@ password: root
 * [Chart.js](https://www.chartjs.org/)
 
 
-![Screenshot](https://raw.githubusercontent.com/Guerra-Defranchi/data_viewer/master/assets/img/data_viewer_landingpage.png)
+<img src="/assets/img/data_viewer_landingpage.png" width="500" height="500">
