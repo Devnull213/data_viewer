@@ -36,3 +36,11 @@ password: root
 
 
 <img src="/assets/img/data_viewer_landingpage.png" width="900" height="500">
+
+<img src="/assets/img/data_viewer_admin_main.png" width="900" height="500">
+
+<img src="/assets/img/data_viewer_roof.png" width="900" height="500">
+
+<img src="/assets/img/data_viewer_tech_view.png" width="900" height="500">
+
+
