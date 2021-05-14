@@ -23,17 +23,21 @@ source  /venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-4. Crea una base de datos en Postgresql
+4. Ejecutar siguiente comando
+```
+echo SECRET_KEY = 'randomkey' > .env
+```
+5. Crea una base de datos en Postgresql
 ```
 CREATE DATABASE data_viewer;
 ```
-5. Modificar credenciales en data_viewer/settings.py 
+6. Modificar credenciales en data_viewer/settings.py 
 ```
 'NAME': 'data_viewer',
 'USER': 'tu usuario postgresql',
 'PASSWORD': 'tu contraseña postgresql',
 ```
-6. Accede a la aplicación mediante 
+7. Accede a la aplicación mediante 
 ```
 http://localhost:8000
 ```
