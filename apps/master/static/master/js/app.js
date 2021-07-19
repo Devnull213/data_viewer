@@ -1,6 +1,4 @@
-
 $(document).ready(function () {
-
   // Endpoints and variables from django
 
   let stulzOneEndpoint = "/admin_view/stulz_one_data";
@@ -56,8 +54,8 @@ $(document).ready(function () {
   let pumpThreePressOut = [];
   let geOneTemp = [];
   let geTwoTemp = [];
-  let geOneVolt= [];
-  let geTwoVolt= [];
+  let geOneVolt = [];
+  let geTwoVolt = [];
   let kva = [];
   let kw = [];
   let kvar = [];
@@ -1298,7 +1296,7 @@ $(document).ready(function () {
       console.log(data);
       labels = data.labels;
       geOneTemp = data.temp;
-      geOneVolt= data.volt;
+      geOneVolt = data.volt;
       var ctx = document.getElementById("geOneChart").getContext("2d");
       var myChart = new Chart(ctx, {
         backgroundColor: ["rgba(34, 33, 36, 1)"],
@@ -1371,7 +1369,7 @@ $(document).ready(function () {
       console.log(data);
       labels = data.labels;
       geTwoTemp = data.temp;
-      geTwoVolt= data.volt;
+      geTwoVolt = data.volt;
       var ctx = document.getElementById("geTwoChart").getContext("2d");
       var myChart = new Chart(ctx, {
         backgroundColor: ["rgba(34, 33, 36, 1)"],
@@ -1532,11 +1530,11 @@ $(document).ready(function () {
       var ctx = document.getElementById("powerPromChart").getContext("2d");
       var myChart = new Chart(ctx, {
         data: {
-          labels: ['KVA', 'KW', 'KVAR'],
+          labels: ["KVA", "KW", "KVAR"],
           datasets: [
             {
               type: "polarArea",
-              label: ['Potencia promedio de la instalación'],
+              label: ["Potencia promedio de la instalación"],
               data: kva_total,
               borderColor: [
                 "rgba(11, 55, 220, 1)",
@@ -1593,82 +1591,78 @@ $(document).ready(function () {
 
   // Admin panel navbar
 
-  $('.subsitio').hide();
-  $('.subsitio:first').show();
-  $('.tabs li a:first').toggleClass('activo')
+  $(".subsitio").hide();
+  $(".subsitio:first").show();
+  $(".tabs li a:first").toggleClass("activo");
 
-  $('.tabs li a').click(function () {
-    $('.tabs li a').removeClass('activo')
-    $(this).toggleClass('activo')
-    $('.subsitio').hide()
+  $(".tabs li a").click(function () {
+    $(".tabs li a").removeClass("activo");
+    $(this).toggleClass("activo");
+    $(".subsitio").hide();
 
-    let activeTab = $(this).attr('href')
-    $(activeTab).fadeIn()
+    let activeTab = $(this).attr("href");
+    $(activeTab).fadeIn();
     return false;
-  })
+  });
 
-  $('.salaups-element').hover(function () {
-    let texto = $(this).text()
-    $('.eq-ups').html(texto)
-  })
+  $(".salaups-element").hover(function () {
+    let texto = $(this).text();
+    $(".eq-ups").html(texto);
+  });
 
-  $('.az-element').hover(function () {
-    let texto = $(this).text()
-    $('.eq-az').html(texto)
-  })
+  $(".az-element").hover(function () {
+    let texto = $(this).text();
+    $(".eq-az").html(texto);
+  });
 
-  $('.tech-element').hover(function () {
-    let texto = $(this).text()
-    $('#tech-menu').html(texto)
-  })
+  $(".tech-element").hover(function () {
+    let texto = $(this).text();
+    $("#tech-menu").html(texto);
+  });
 
-  $('.ge-element').hover(function () {
-    let texto = 'Grupo'
-    let geSpecific = $(this).attr('value')
-    
-    $('.eq-ge1').html(texto)
-    $('.eq-ge2').html(geSpecific)
-  })
+  $(".ge-element").hover(function () {
+    let texto = "Grupo";
+    let geSpecific = $(this).attr("value");
 
+    $(".eq-ge1").html(texto);
+    $(".eq-ge2").html(geSpecific);
+  });
 
-  $('.go-up').click(function () {
-    $('body, html').animate({
-      scrollTop: '0px'
-    }, 300)
-  })
+  $(".go-up").click(function () {
+    $("body, html").animate(
+      {
+        scrollTop: "0px",
+      },
+      300
+    );
+  });
 
   $(window).scroll(function () {
-    if ( $(this).scrollTop() > 0){
-      $('.go-up').slideDown(300);
-    }else{
-      $('.go-up').slideUp(300);
+    if ($(this).scrollTop() > 0) {
+      $(".go-up").slideDown(300);
+    } else {
+      $(".go-up").slideUp(300);
     }
   });
-  $('#sidebar-btn').click(function () {
-    $('#sidebar').toggleClass('appears');
-  })
+  $("#sidebar-btn").click(function () {
+    $("#sidebar").toggleClass("appears");
+  });
 
+  $("#edit-profile-form").hide();
+  $("#edit-pass-form").hide();
 
-  $('#edit-profile-form').hide()
-  $('#edit-pass-form').hide()
+  $("#edit-profile-btn").click(function () {
+    $("#edit-pass-form").hide();
+    $("#edit-profile-form").fadeIn();
+  });
 
-  $('#edit-profile-btn').click(function () {
-    $('#edit-pass-form').hide()
-    $('#edit-profile-form').fadeIn()
-  })
+  $("#edit-password-btn").click(function () {
+    $("#edit-pass-form").fadeIn();
+    $("#edit-profile-form").hide();
+  });
 
-  $('#edit-password-btn').click(function () {
-    $('#edit-pass-form').fadeIn()
-    $('#edit-profile-form').hide()
-  })
-
-  $('.cancel-edit').click(function () {
-    $('#edit-profile-form').hide()
-    $('#edit-pass-form').hide()
-  })
-
-  let first_load = $('#botonInforme').trigger('click')
-  first_load.one()
-    
-
+  $(".cancel-edit").click(function () {
+    $("#edit-profile-form").hide();
+    $("#edit-pass-form").hide();
+  });
 });
